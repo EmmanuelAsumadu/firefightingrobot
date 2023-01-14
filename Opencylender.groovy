@@ -3,10 +3,10 @@ import eu.mihosoft.vrl.v3d.Cylinder
 import eu.mihosoft.vrl.v3d.Sphere
 
 //Your code here
-
-CSG sphere = new Sphere(25)// Spheres radius
+double spheresapce= 73.8/2
+CSG sphere = new Sphere(spheresapce*2)// Spheres radius
 				.toCSG()// convert to CSG to display
-CSG simpleSyntax =new Cylinder(10,40).toCSG() // a one line Cylinder
+CSG simpleSyntax =new Cylinder(spheresapce,150).toCSG() // a one line Cylinder
 
 CSG newtihing = sphere.difference(simpleSyntax)
 
