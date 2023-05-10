@@ -7,8 +7,8 @@ CSG vitamin_heatedThreadedInsert_M3_pressIn = Vitamins.get("heatedThreadedInsert
 double heightOfChamber = 5*25.4 //now in inches 
 double radiusOfChamber = 8.25*25.4/2 //now in inches 
 double innerRadius = 7*25.4/2
-double largePlateRadius = 2.25*25.4/2
-double smallPlateRadius = 1.25*25.4/2
+double largePlateRadius = 8.25*25.4/2
+double smallPlateRadius = 2.5*25.4/2
 double LargePlateHieght = 2*25.4
 double smallPlateHieght = 2*25.4
 
@@ -18,5 +18,5 @@ CSG finalCylinder = simpleSyntax.difference(smallCylinder);
 CSG smallPlate  = new Cylinder(smallPlateRadius,smallPlateHieght,(int)100).toCSG()
 CSG LargePlate = new Cylinder (largePlateRadius,LargePlateHieght,(int)100).toCSG()
 CSG finalPlate = LargePlate.difference(smallPlate);
-return [finalCylinder.movex(size*4),finalPlate]
+return [finalCylinder.movex(size*8),finalPlate]
 
