@@ -8,7 +8,7 @@ double heightOfChamber = 6*25.4 //now in inches
 double radiusOfChamber = 8.25*25.4/2 //now in inches 
 double innerRadius = 7*25.4/2
 double largePlateRadius = 8.25*25.4/2
-double smallPlateRadius = 2.5*25.4/2
+double smallPlateRadius = 3*25.4/2
 double LargePlateHieght = 1*25.4
 double smallPlateHieght = 1*25.4
 
