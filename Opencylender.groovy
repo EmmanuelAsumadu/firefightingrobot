@@ -36,4 +36,7 @@ CSG finalPlate = LargePlate
 					
 CSG HOLE =  finalCylinder.difference(setOfBolts);
 finalPlate.addExportFormat("svg")
+finalPlate.setManufacturing({toMfg->
+	return toMfg.toZMin()	
+})
 return [finalPlate,HOLE]
