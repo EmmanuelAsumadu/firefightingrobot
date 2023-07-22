@@ -1,5 +1,6 @@
 double size= 40
 import com.neuronrobotics.bowlerstudio.vitamins.Vitamins
+import eu.mihosoft.vrl.v3d.Transform
 
 import eu.mihosoft.vrl.v3d.CSG
 import eu.mihosoft.vrl.v3d.Cylinder
@@ -11,7 +12,7 @@ double radiusOfChamber = 8.25*25.4/2 //now in inches
 double innerRadius = 7.17*25.4/2
 double largePlateRadius = 8.25*25.4/2
 double smallPlateRadius = 3*25.4/2
-double LargePlateHieght = 1*25.4
+double LargePlateHieght = 6.35
 double smallPlateHieght = LargePlateHieght
 double boltradius = 1.5 
 double boltHeight = heightOfChamber+LargePlateHieght
