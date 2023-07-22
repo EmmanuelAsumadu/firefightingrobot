@@ -1,4 +1,5 @@
 double size= 40
+import com.neuronrobotics.bowlerstudio.scripting.ScriptingEngine
 import com.neuronrobotics.bowlerstudio.vitamins.Vitamins
 import eu.mihosoft.vrl.v3d.Transform
 
@@ -53,7 +54,12 @@ finalPlate.addExportFormat("svg")
 finalPlate.setManufacturing({toMfg->
 	return toMfg.toZMin()	
 })
-return [finalPlate,HOLE,vitamin_heatedThreadedInsert_M3_pressIn,vitamin_ballBearing_695zz,vitamin_capScrew_M5x25,spaceOfCap,secondSpaceCap]
+ArrayList<CSG> parts = ScriptingEngine.gitScriptRun("https://github.com/EmmanuelAsumadu/firefightingrobot.git", "HardwareForSonicHope.groovy",null)
+
+finalPlate.addAssemblyStep(1, new Transform().movez(100))
+
+
+return [parts,finalPlate,HOLE,vitamin_heatedThreadedInsert_M3_pressIn,vitamin_ballBearing_695zz,vitamin_capScrew_M5x25,spaceOfCap,secondSpaceCap]
 
 
 
