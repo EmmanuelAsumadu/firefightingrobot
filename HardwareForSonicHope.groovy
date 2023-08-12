@@ -26,6 +26,7 @@ double miniCubeZ= lilCubeZ
 double CubeX =40
 double CubeY= 15
 double CubeZ = lilCubeZ
+double secondSmallSphere =30
 //miniCube is the space for the servo motor 
 // code here
 CSG bigSphere = new Sphere(bigSphereNum,30,30)
@@ -36,18 +37,28 @@ CSG bigCube = new Cube(cubeDimX, cubeDimY, cubeDimZ)
 CSG semi = bigSphere.difference(bigCube);
 CSG smallSphere = new Sphere(smallSphereNum)
 					 .toCSG()
+CSG SecondsmallSphere = new Sphere(secondSmallSphere).toCSG()
 CSG smallSemi = smallSphere.difference(bigCube);
 CSG finalSemi = semi.difference(smallSemi);
 CSG cylinder = new Cylinder(radiusOfCylinder,heightOfCylinder,(int)40).toCSG()
 CSG finalShape = finalSemi.roty(180).difference(cylinder);
 CSG plate = new Cylinder(radiusOfCylinder,plateHeight).toCSG()
 							.movey(300)
-CSG Joint1 = new Cylinder(firstRadius,firstHeight).toCSG().movey(300).movez(72)
+CSG Arm1 = new Cylinder(firstRadius,firstHeight).toCSG().movey(300).movez(72)
 CSG roundedcube =new RoundedCube(lilCubeX,lilCubeY,lilCubeZ).cornerRadius(4).toCSG().movey(300).movez(40)
 CSG SmallCube = new Cube (miniCubeX,miniCubeY,miniCubeZ).toCSG().movey(300).movez(40)
 CSG finalCube = roundedcube.difference(SmallCube);
-CSG smallRoundedCube = new RoundedCube(CubeX,CubeY,CubeZ).cornerRadius(4).toCSG().movey(330).movez(150)
+CSG smallRoundedCube = new RoundedCube(CubeX,CubeY,CubeZ).cornerRadius(4).toCSG()
+
+
+CSG Joint3 =SecondsmallSphere.difference(smallRoundedCube)
+CSG Joint3box=Joint3.getBoundingBox().toZMin()
+CSG halfJoint3=Joint3.intersect(Joint3box)
+CSG Joint2 = SecondsmallSphere.difference(smallRoundedCube);
 finalShape.addAssemblyStep(1, new Transform().movex(100))
-Joint1.addAssemblyStep(1,new Transform().movez(100))
+Arm1.addAssemblyStep(1,new Transform().movez(100))
 finalCube.addAssemblyStep(1,new Transform().movey(100))
-return [finalShape,plate,finalCube,Joint1,smallRoundedCube]
+return [finalShape,plate,finalCube,Arm1,halfJoint3]
+
+
+
